@@ -8,8 +8,8 @@ const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
     .max(70, 'Too Long!')
-    .required('Required'),
-  number: Yup.number().required('Required'),
+    .required('Please enter name'),
+  number: Yup.number().required('Please enter number'),
 });
 // const Input = styled(Field)`
 //   font-size: 14px;
@@ -21,7 +21,6 @@ const initialValues = {
 const ContactsForm = ({ handleSubmit }) => {
   return (
     <div>
-      <h1>Formik</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
@@ -45,7 +44,7 @@ const ContactsForm = ({ handleSubmit }) => {
   );
 };
 ContactsForm.propTypes = {
-  createUser: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 
